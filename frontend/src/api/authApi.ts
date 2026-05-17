@@ -5,7 +5,7 @@ export const loginApi = async (
   email: string,
   password: string
 ): Promise<AuthResponse> => {
-  const res = await api.post<AuthResponse>("/auth/login", { email, password });
+  const res = await api.post<AuthResponse>("/api/auth/login", { email, password });
   return res.data;
 };
 
@@ -15,7 +15,7 @@ export const registerApi = async (
   password: string,
   role: "admin" | "sales"
 ): Promise<AuthResponse> => {
-  const res = await api.post<AuthResponse>("/auth/register", {
+  const res = await api.post<AuthResponse>("/api/auth/register", {
     name,
     email,
     password,
