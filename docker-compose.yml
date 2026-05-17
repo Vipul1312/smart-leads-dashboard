@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  mongo:
+    image: mongo:7
+    container_name: leads-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: leads-backend
+    ports:
+      - "5000:5000"
+    environment:
+      PORT: 5000
+      MONGO_URI: mongodb://mongo:27017/smart-leads
+      JWT_SECRET: docker_secret_change_me
+      JWT_EXPIRES_IN: 7d
+      CLIENT_URL: http://localhost:5173
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    container_name: leads-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
