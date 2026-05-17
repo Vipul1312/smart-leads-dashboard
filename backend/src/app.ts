@@ -14,6 +14,10 @@ app.use(
 );
 app.use(express.json());
 
+app.get("/", (_req, res) => {
+  res.send("Backend server is running");
+});
+
 app.get("/api/health", (_req, res) => {
   res.json({ success: true, message: "API is running" });
 });
