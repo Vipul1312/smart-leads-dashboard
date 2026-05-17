@@ -34,3 +34,18 @@ cd backend
 cp .env.example .env
 npm install
 npm run dev
+
+
+Live Demo :-
+
+Frontend (Vercel): https://smart-leads-dashboard-nine.vercel.app/
+
+Backend (Render): https://smart-leads-dashboard-e9xi.onrender.com/api
+
+API (Health Check) : https://smart-leads-dashboard-e9xi.onrender.com/api/health
+
+
+Test Credentials :-
+
+Admin : admin@test.com / 123456
+Sales: sales@test.com / 123456
